@@ -1,5 +1,5 @@
 <div align="center">
-    <h1>dlg <a href="https://github.com/vvvvv/dlg/actions/workflows/tests.yml"><img src="https://github.com/vvvvv/dlg/actions/workflows/tests.yml/badge.svg?branch=main" /></a></h1>
+    <h1>dlg <a href="https://github.com/chrisv/dlg/actions/workflows/tests.yml"><img src="https://github.com/chrisv/dlg/actions/workflows/tests.yml/badge.svg?branch=main" /></a></h1>
     <h3><em>delog - /diːˈlɑːɡ/ </em></h3>
     <h3>Printf-Style Debugging with Zero-Cost in Production Builds</h3>
 </div>
@@ -28,32 +28,32 @@ For the full technical breakdown, see [True Zero-Cost Elimination.](#true-zero-c
 
 ### Getting Started
 ```bash
-go get github.com/vvvvv/dlg
+go get github.com/chrisv/dlg
 ```
 
 ```go
 package main
 
 import (
-	"fmt"
+    "fmt"
 
-	"github.com/vvvvv/dlg"
+    "github.com/chrisv/dlg"
 )
 
 func risky() error {
-	return fmt.Errorf("unexpected error")
+    return fmt.Errorf("unexpected error")
 }
 
 func main() {
-	fmt.Println("starting...")
+    fmt.Println("starting...")
 
-	dlg.Printf("executing risky operation")
-	err := risky()
-	if err != nil {
-		dlg.Printf("something failed: %v", err)
-	}
+    dlg.Printf("executing risky operation")
+    err := risky()
+    if err != nil {
+        dlg.Printf("something failed: %v", err)
+    }
 
-	dlg.Printf("continuing")
+    dlg.Printf("continuing")
 }
 ```
 
@@ -113,7 +113,7 @@ starting...
 01:31:34 [2µs] main.go:16: executing risky operation
 01:31:34 [21µs] main.go:19: something failed: unexpected error
 main.main()
-    /Users/v/src/go/src/github.com/vvvvv/dlg/examples/example01/main.go:19 +0xc0
+    /Users/v/src/go/src/github.com/chrisv/dlg/examples/example01/main.go:19 +0xc0
 01:31:34 [38µs] main.go:22: continuing
 ```
 
@@ -145,7 +145,7 @@ func main(){
 ```
 16:14:39 [10µs] main.go:8: foobar
 main.main()
-    /Users/v/src/go/src/github.com/vvvvv/dlg/examples/example08/main.go:8 +0x4b
+    /Users/v/src/go/src/github.com/chrisv/dlg/examples/example08/main.go:8 +0x4b
 ```
 
 #### Tracing Across Functions
@@ -175,12 +175,12 @@ func main(){
 16:19:35 [1µs] main.go:11: outside of tracing region
 16:19:35 [30µs] main.go:14: started tracing
 main.main()
-        /Users/v/src/go/src/github.com/vvvvv/dlg/examples/example08/main.go:14 +0x67
+        /Users/v/src/go/src/github.com/chrisv/dlg/examples/example08/main.go:14 +0x67
 16:19:35 [43µs] main.go:7: hello from foo
 main.foo()
-        /Users/v/src/go/src/github.com/vvvvv/dlg/examples/example08/main.go:7 +0x87
+        /Users/v/src/go/src/github.com/chrisv/dlg/examples/example08/main.go:7 +0x87
 main.main()
-        /Users/v/src/go/src/github.com/vvvvv/dlg/examples/example08/main.go:15 +0x68
+        /Users/v/src/go/src/github.com/chrisv/dlg/examples/example08/main.go:15 +0x68
 ```
 
 
@@ -212,7 +212,7 @@ func main(){
 16:24:20 [3µs] main.go:15: starting...
 16:24:20 [29µs] main.go:19: oh no an error: this is an error
 main.main()
-    /Users/v/src/go/src/github.com/vvvvv/dlg/examples/example08/main.go:19 +0x97
+    /Users/v/src/go/src/github.com/chrisv/dlg/examples/example08/main.go:19 +0x97
 ```
 
 #### Understanding Tracing Region Scopes
@@ -246,15 +246,15 @@ func main(){
 ```
 16:28:27 [12µs] main.go:15: starting...
 main.main()
-        /Users/v/src/go/src/github.com/vvvvv/dlg/examples/example08/main.go:15 +0x4b
+        /Users/v/src/go/src/github.com/chrisv/dlg/examples/example08/main.go:15 +0x4b
 16:28:27 [43µs] main.go:18: hello from fn
 main.main.func1()
-        /Users/v/src/go/src/github.com/vvvvv/dlg/examples/example08/main.go:18 +0x6b
+        /Users/v/src/go/src/github.com/chrisv/dlg/examples/example08/main.go:18 +0x6b
 main.main()
-        /Users/v/src/go/src/github.com/vvvvv/dlg/examples/example08/main.go:22 +0x4c
+        /Users/v/src/go/src/github.com/chrisv/dlg/examples/example08/main.go:22 +0x4c
 16:28:27 [49µs] main.go:24: this will still produce a stack trace
 main.main()
-        /Users/v/src/go/src/github.com/vvvvv/dlg/examples/example08/main.go:24 +0x9f
+        /Users/v/src/go/src/github.com/chrisv/dlg/examples/example08/main.go:24 +0x9f
 ```
 
 
@@ -288,12 +288,12 @@ func main(){
 ```
 16:34:07 [9µs] main.go:15: starting...
 main.main()
-        /Users/v/src/go/src/github.com/vvvvv/dlg/examples/example08/main.go:15 +0x6b
+        /Users/v/src/go/src/github.com/chrisv/dlg/examples/example08/main.go:15 +0x6b
 16:34:07 [33µs] main.go:18: hello from fn
 main.main.func1()
-        /Users/v/src/go/src/github.com/vvvvv/dlg/examples/example08/main.go:18 +0x8b
+        /Users/v/src/go/src/github.com/chrisv/dlg/examples/example08/main.go:18 +0x8b
 main.main()
-        /Users/v/src/go/src/github.com/vvvvv/dlg/examples/example08/main.go:23 +0x6c
+        /Users/v/src/go/src/github.com/chrisv/dlg/examples/example08/main.go:23 +0x6c
 16:34:07 [48µs] main.go:25: this won't trace
 ```
 
@@ -341,7 +341,7 @@ func main(){
 ```
 16:47:04 [10µs] main.go:14: this will trace
 main.main()
-        /Users/v/src/go/src/github.com/vvvvv/dlg/examples/example08/main.go:14 +0x6b
+        /Users/v/src/go/src/github.com/chrisv/dlg/examples/example08/main.go:14 +0x6b
 16:47:04 [34µs] main.go:18: this won't trace
 ```
 
@@ -364,34 +364,34 @@ While `dlg.Printf` is safe for concurrent use, custom writers should implement [
 package main
 
 import (
-	"bytes"
-	"fmt"
-	"sync"
+    "bytes"
+    "fmt"
+    "sync"
 
-	"github.com/vvvvv/dlg"
+    "github.com/chrisv/dlg"
 )
 
 type SafeBuffer struct {
-	bytes.Buffer
-	sync.Mutex
+    bytes.Buffer
+    sync.Mutex
 }
 
 func main() {
-	sb := &SafeBuffer{}
-	dlg.SetOutput(sb) // Now fully concurrency-safe!
+    sb := &SafeBuffer{}
+    dlg.SetOutput(sb) // Now fully concurrency-safe!
 
-	var wg sync.WaitGroup
-	for i := 0; i < 10; i++ {
-		wg.Add(1)
-		go func() {
-			defer wg.Done()
-			for n := 0; n < 5; n++ {
-				dlg.Printf("from goroutine #%v: message %v", i, n)
-			}
-		}()
-	}
-	wg.Wait()
-	fmt.Print(sb.Buffer.String())
+    var wg sync.WaitGroup
+    for i := 0; i < 10; i++ {
+        wg.Add(1)
+        go func() {
+            defer wg.Done()
+            for n := 0; n < 5; n++ {
+                dlg.Printf("from goroutine #%v: message %v", i, n)
+            }
+        }()
+    }
+    wg.Wait()
+    fmt.Print(sb.Buffer.String())
 }
 ```
 
@@ -425,8 +425,8 @@ DLG_STACKTRACE=REGION,ALWAYS ./app-debug
 
 *Compile-time:*
 ```bash
-go build -tags dlg -ldflags "-X 'github.com/vvvvv/dlg.DLG_STACKTRACE=ERROR'"
-go build -tags dlg -ldflags "-X 'github.com/vvvvv/dlg.DLG_STACKTRACE=REGION,ALWAYS'"
+go build -tags dlg -ldflags "-X 'github.com/chrisv/dlg.DLG_STACKTRACE=ERROR'"
+go build -tags dlg -ldflags "-X 'github.com/chrisv/dlg.DLG_STACKTRACE=REGION,ALWAYS'"
 ```
 
 **DLG_NO_WARN - Suppress the debug startup banner**  
@@ -442,11 +442,11 @@ DLG_NO_WARN=1 ./app-debug
 *Compile-time:*
 ```bash
 # Set the color to ANSI color red.
-go build -tags dlg -ldflags "-X 'github.com/vvvvv/dlg.DLG_COLOR=red'"
+go build -tags dlg -ldflags "-X 'github.com/chrisv/dlg.DLG_COLOR=red'"
 # Set the color to ANSI color 4.
-go build -tags dlg -ldflags "-X 'github.com/vvvvv/dlg.DLG_COLOR=4'"
+go build -tags dlg -ldflags "-X 'github.com/chrisv/dlg.DLG_COLOR=4'"
 # Set raw ANSI color.
-go build -tags dlg -ldflags "-X 'github.com/vvvvv/dlg.DLG_COLOR=\033[38;2;250;3;250m'"
+go build -tags dlg -ldflags "-X 'github.com/chrisv/dlg.DLG_COLOR=\033[38;2;250;3;250m'"
 ```
 > This setting respects the `NO_COLOR` convention
 
@@ -465,13 +465,13 @@ Consider this simple program:
 package main
 
 import (
-	"fmt"
-	"github.com/vvvvv/dlg"
+    "fmt"
+    "github.com/chrisv/dlg"
 )
 
 func main() {
-	fmt.Println("hello world")
-	dlg.Printf("hello from dlg")
+    fmt.Println("hello world")
+    dlg.Printf("hello from dlg")
 }
 ```
 

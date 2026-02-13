@@ -17,7 +17,7 @@ Usage:
 	import (
 		"fmt"
 
-		"github.com/vvvvv/dlg"
+		"github.com/chrisv/dlg"
 	)
 
 	func risky() error {
@@ -70,7 +70,7 @@ Including stack traces in the output we simply set an environment variable when 
 	01:31:34 [2µs] main.go:16: executing risky operation
 	01:31:34 [21µs] main.go:19: something failed: unexpected error
 	main.main()
-		/Users/v/src/go/src/github.com/vvvvv/dlg/examples/example01/main.go:19 +0xc0
+		/Users/v/src/go/src/github.com/chrisv/dlg/examples/example01/main.go:19 +0xc0
 
 	01:31:34 [38µs] main.go:22: continuing
 
@@ -81,19 +81,19 @@ Including stack traces every time Printf is called:
 	starting...
 	01:35:47 [2µs] main.go:16: executing risky operation
 	main.main()
-		/Users/v/src/go/src/github.com/vvvvv/dlg/examples/example01/main.go:16 +0x6c
+		/Users/v/src/go/src/github.com/chrisv/dlg/examples/example01/main.go:16 +0x6c
 
 	01:35:47 [34µs] main.go:19: something failed: unexpected error
 	main.main()
-		/Users/v/src/go/src/github.com/vvvvv/dlg/examples/example01/main.go:19 +0xc0
+		/Users/v/src/go/src/github.com/chrisv/dlg/examples/example01/main.go:19 +0xc0
 
 	01:35:47 [41µs] main.go:22: continuing
 	main.main()
-		/Users/v/src/go/src/github.com/vvvvv/dlg/examples/example01/main.go:22 +0xdc
+		/Users/v/src/go/src/github.com/chrisv/dlg/examples/example01/main.go:22 +0xdc
 
 Compiling with stack traces activated:
 
-	go build -tags dlg -ldflags "-X 'github.com/vvvvv/dlg.DLG_STACKTRACE=ERROR'"
+	go build -tags dlg -ldflags "-X 'github.com/chrisv/dlg.DLG_STACKTRACE=ERROR'"
 
 Package Configuration:
 
@@ -101,13 +101,13 @@ Outputs a stack trace if any of the arguments passed to Printf is of type error:
 
 	export DLG_STACKTRACE=ERROR
 	// or
-	-ldflags "-X 'github.com/vvvvv/dlg.DLG_STACKTRACE=ERROR'"
+	-ldflags "-X 'github.com/chrisv/dlg.DLG_STACKTRACE=ERROR'"
 
 Outputs a stack trace *on every call* to Printf, regardless of the arguments:
 
 	export DLG_STACKTRACE=ALWAYS
 	// or
-	-ldflags "-X 'github.com/vvvvv/dlg.DLG_STACKTRACE=ALWAYS'"
+	-ldflags "-X 'github.com/chrisv/dlg.DLG_STACKTRACE=ALWAYS'"
 
 Suppresses the debug banner printed at startup:
 

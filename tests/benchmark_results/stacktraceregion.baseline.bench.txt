@@ -1,6 +1,6 @@
 goos: darwin
 goarch: arm64
-pkg: github.com/vvvvv/dlg/tests/stacktraceregion
+pkg: github.com/chrisv/dlg/tests/stacktraceregion
 cpu: Apple M3 Pro
 BenchmarkPrintfWithRegion16-12                    	   97921	      2357 ns/op	    1314 B/op	       8 allocs/op
 BenchmarkPrintfWithRegion16-12                    	   99145	      2357 ns/op	    1314 B/op	       8 allocs/op
@@ -63,4 +63,4 @@ BenchmarkPrintfWithRegionStartStopWithKey64-12    	   72879	      3229 ns/op	   
 BenchmarkPrintfWithRegionStartStopWithKey64-12    	   73000	      3240 ns/op	    1805 B/op	      19 allocs/op
 BenchmarkPrintfWithRegionStartStopWithKey64-12    	   72884	      3238 ns/op	    1805 B/op	      19 allocs/op
 PASS
-ok  	github.com/vvvvv/dlg/tests/stacktraceregion	16.052s
+ok  	github.com/chrisv/dlg/tests/stacktraceregion	16.052s

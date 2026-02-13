@@ -52,7 +52,7 @@ pkg_root="${pkg_root%/*}/"
 
 while [[ -n "${pkg_root}" ]]; do
   typeset go_mod="${pkg_root}/go.mod"
-  if [[ -f "${go_mod}" ]] && grep --quiet 'module github.com/vvvvv/dlg' "${go_mod}" 2>/dev/null; then
+  if [[ -f "${go_mod}" ]] && grep --quiet 'module github.com/chrisv/dlg' "${go_mod}" 2>/dev/null; then
     break
   fi
   pkg_root="${pkg_root%/*}"
@@ -95,9 +95,9 @@ fi
 # Change go.mod file so the local dlg package is being used
 cat >> go.mod <<END
 
-require github.com/vvvvv/dlg ${version}
+require github.com/chrisv/dlg ${version}
 
-replace github.com/vvvvv/dlg => ${pkg_root}
+replace github.com/chrisv/dlg => ${pkg_root}
 
 END
 
@@ -109,7 +109,7 @@ package main
 import (
   "fmt"
   "os"
-  "github.com/vvvvv/dlg"
+  "github.com/chrisv/dlg"
 )
 
 func main(){

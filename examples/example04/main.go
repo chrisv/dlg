@@ -3,7 +3,7 @@ package main
 import (
 	"fmt"
 
-	"github.com/vvvvv/dlg"
+	"github.com/chrisv/dlg"
 )
 
 func risky() error {

@@ -7,10 +7,10 @@ import (
 	"strings"
 )
 
-// colorizeOrDont gets set when -ldflags "-X 'github.com/vvvvv/dlg.DLG_COLOR=1'"
+// colorizeOrDont gets set when -ldflags "-X 'github.com/chrisv/dlg.DLG_COLOR=1'"
 var colorizeOrDont = func(buf *[]byte) {}
 
-// resetColorOrDont gets set when -ldflags "-X 'github.com/vvvvv/dlg.DLG_COLOR=1'"
+// resetColorOrDont gets set when -ldflags "-X 'github.com/chrisv/dlg.DLG_COLOR=1'"
 var resetColorOrDont = func(buf *[]byte) {}
 
 func colorize(buf *[]byte) {

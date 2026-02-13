@@ -9,7 +9,7 @@ pkg_root() {
 
   while [[ -n "${project_root}" ]]; do
     typeset go_mod_file="${project_root}/go.mod"
-    if [[ -f "${go_mod_file}" ]] && grep --quiet 'module github.com/vvvvv/dlg' "${go_mod_file}" 2>/dev/null; then
+    if [[ -f "${go_mod_file}" ]] && grep --quiet 'module github.com/chrisv/dlg' "${go_mod_file}" 2>/dev/null; then
       break
     fi
     project_root="${project_root%/*}"

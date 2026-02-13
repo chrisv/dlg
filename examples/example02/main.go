@@ -6,7 +6,7 @@ import (
 	"io"
 	"sync"
 
-	"github.com/vvvvv/dlg"
+	"github.com/chrisv/dlg"
 )
 
 type SafeWriter struct {

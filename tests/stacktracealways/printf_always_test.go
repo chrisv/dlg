@@ -6,8 +6,8 @@ import (
 	"bytes"
 	"testing"
 
-	"github.com/vvvvv/dlg"
-	"github.com/vvvvv/dlg/tests/internal"
+	"github.com/chrisv/dlg"
+	"github.com/chrisv/dlg/tests/internal"
 )
 
 func TestPrintfStackTraceAlways(t *testing.T) {

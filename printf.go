@@ -21,7 +21,7 @@ var (
 	bufSize = 128
 
 	// DLG_STACKTRACE and DLG_COLORS must be set using linker flags only:
-	// e.g. go build -tags dlg -ldflags "-X github.com/vvvvv/dlg.DLG_STACKTRACE=ALWAYS"
+	// e.g. go build -tags dlg -ldflags "-X github.com/chrisv/dlg.DLG_STACKTRACE=ALWAYS"
 	// Packages importing dlg MUST NOT read from or write to this variable - doing so won't have any effect and will result in a compilation error when the dlg build tag is omitted.
 	DLG_STACKTRACE = ""
 	DLG_COLOR      = ""
